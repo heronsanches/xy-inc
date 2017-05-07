@@ -14,13 +14,81 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
+    <dependencyManagement>
+        <dependencies>
+            <!-- TEST DEPENDENCY-->
+            <dependency> 
+                <groupId>org.jboss.arquillian</groupId> 
+                <artifactId>arquillian-bom</artifactId> 
+                <version>1.1.13.Final</version> 
+                <scope>import</scope> 
+                <type>pom</type> 
+            </dependency>
+            <!-- TEST DEPENDENCY -->
+        </dependencies>
+    </dependencyManagement>
+    
+    <!-- TEST PROFILE-->
+    <profiles>
+        <profile> 
+            <id>arquillian-wildfly-managed</id> 
+            <activation> 
+                <activeByDefault>true</activeByDefault> 
+            </activation>
+            <dependencies> 
+                <dependency> 
+                    <groupId>org.wildfly.arquillian</groupId> 
+                    <artifactId>wildfly-arquillian-container-managed</artifactId> 
+                    <version>2.0.2.Final</version>
+                    <scope>test</scope> 
+                </dependency> 
+            </dependencies> 
+        </profile>
+    </profiles>
+    <!--END TEST PROFILE -->
+    
     <dependencies>
         <dependency>
             <groupId>com.xyinc</groupId>
             <artifactId>xy-inc-zup</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>        
+        
+        <!--test dependencies-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+            <version>4.12</version>
+        </dependency>
+      
+        <dependency> 
+            <groupId>org.jboss.arquillian.junit</groupId> 
+            <artifactId>arquillian-junit-container</artifactId>
+            <scope>test</scope> 
+        </dependency>
+      
+        <dependency> 
+            <groupId>org.jboss.arquillian.protocol</groupId> 
+            <artifactId>arquillian-protocol-servlet</artifactId>
+            <scope>test</scope> 
         </dependency>
 
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>3.0.11.Final</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jackson-provider</artifactId>
+            <version>3.0.11.Final</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- end test dependencies-->
+       
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>

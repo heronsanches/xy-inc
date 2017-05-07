@@ -60,7 +60,7 @@ public class PoiR {
    @Consumes(MediaType.APPLICATION_JSON)
    public PoiJB insert(InsertJBI i){
       
-      if(i.getX() < 1 || i.getY() < 1)
+      if(i.getX() < 0 || i.getY() < 0)
          throw new WebApplicationException(Response.ok(new MessageJB(ResponseEnum.ERROR, COORDINATE_MSG_CONSTRAINT)).build());
       
       if(i.getName() == null || i.getName().trim().isEmpty())      

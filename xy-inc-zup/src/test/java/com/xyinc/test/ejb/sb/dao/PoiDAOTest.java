@@ -67,7 +67,6 @@ public class PoiDAOTest {
    
    private void initializeData() throws Exception{
       
-      ut.begin();
       poiDAOI.insert(new Poi(new PoiPK(27, 12), "Lanchonete"));
       poiDAOI.insert(new Poi(new PoiPK(31, 18), "Posto"));
       poiDAOI.insert(new Poi(new PoiPK(15, 12), "Joalheria"));
@@ -75,7 +74,6 @@ public class PoiDAOTest {
       poiDAOI.insert(new Poi(new PoiPK(12, 8), "Pub"));
       poiDAOI.insert(new Poi(new PoiPK(23, 6), "Supermercado"));
       poiDAOI.insert(new Poi(new PoiPK(28, 2), "Churrascaria"));
-      ut.commit();
       
    }
    
@@ -94,32 +92,46 @@ public class PoiDAOTest {
       poiJB = poiDAOI.insert(poi);
       assertEquals(ResponseEnum.OK, poiJB.getStatus());
       
-      poi = new Poi(new PoiPK(31, 18), "Posto");
+      poi.setTxtName("Posto");
+      poi.getPoiPK().setIdPoiNumX(31);
+      poi.getPoiPK().setIdPoiNumY(18);
       poiJB = poiDAOI.insert(poi);
       assertEquals(ResponseEnum.OK, poiJB.getStatus());
 
-      poi = new Poi(new PoiPK(15, 12), "Joalheria");
+      poi.setTxtName("Joalheria");
+      poi.getPoiPK().setIdPoiNumX(15);
+      poi.getPoiPK().setIdPoiNumY(12);
       poiJB = poiDAOI.insert(poi);
       assertEquals(ResponseEnum.OK, poiJB.getStatus());
       
-      poi = new Poi(new PoiPK(19, 21), "Floricultura");
+      poi.setTxtName("Floricultura");
+      poi.getPoiPK().setIdPoiNumX(19);
+      poi.getPoiPK().setIdPoiNumY(21);
       poiJB = poiDAOI.insert(poi);
       assertEquals(ResponseEnum.OK, poiJB.getStatus());
       
-      poi = new Poi(new PoiPK(12, 8), "Pub");
+      poi.setTxtName("Pub");
+      poi.getPoiPK().setIdPoiNumX(12);
+      poi.getPoiPK().setIdPoiNumY(8);
       poiJB = poiDAOI.insert(poi);
       assertEquals(ResponseEnum.OK, poiJB.getStatus());
       
-      poi = new Poi(new PoiPK(23, 6), "Supermercado");
+      poi.setTxtName("Supermercado");
+      poi.getPoiPK().setIdPoiNumX(23);
+      poi.getPoiPK().setIdPoiNumY(6);
       poiJB = poiDAOI.insert(poi);
       assertEquals(ResponseEnum.OK, poiJB.getStatus());
       
-      poi = new Poi(new PoiPK(28, 2), "Churrascaria");
+      poi.setTxtName("Churrascaria");
+      poi.getPoiPK().setIdPoiNumX(28);
+      poi.getPoiPK().setIdPoiNumY(2);
       poiJB = poiDAOI.insert(poi);
       assertEquals(ResponseEnum.OK, poiJB.getStatus());
       
       //testing no successfully insert - it has to return ResponseEnum.ALREADY_EXISTIS
-      poi = new Poi(new PoiPK(19, 21), "Duplicated PK");
+      poi.setTxtName("Duplicated PK");
+      poi.getPoiPK().setIdPoiNumX(19);
+      poi.getPoiPK().setIdPoiNumY(21);
       poiJB = poiDAOI.insert(poi);
       assertEquals(ResponseEnum.ALREADY_EXISTIS, poiJB.getStatus());
       
@@ -149,7 +161,7 @@ public class PoiDAOTest {
       mapExpRes.put("19;21", "Floricultura");
       mapExpRes.put("28;2", "Churrascaria");
 
-      Set<String> set = new HashSet<>(4);
+      Set<String> set = new HashSet<>(7);
       String coordinates = "";
       
       //it veirifies if all returned POIs are distincts and if them belongs to the map with the expected result
@@ -213,7 +225,6 @@ public class PoiDAOTest {
       poiJB = poiDAOI.findByDistance(20, 10, 4);
       assertEquals(ResponseEnum.NO_EXISTS, poiJB.getStatus());
       assertEquals(0, poiJB.getPois().size());
-      initializeData();
 
    }
    

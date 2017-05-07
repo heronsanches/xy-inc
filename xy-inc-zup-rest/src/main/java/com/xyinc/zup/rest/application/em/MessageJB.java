@@ -13,13 +13,26 @@ public class MessageJB {
    private String message;
 
    
+   public MessageJB(){}
+   
+   
    public MessageJB(ResponseEnum status, String message) {
       
       this.status = status;
       this.message = message;
       
    }
+   
 
+   public void setStatus(ResponseEnum status) {
+      this.status = status;
+   }
+
+   public void setMessage(String message) {
+      this.message = message;
+   }
+
+   
    
    public ResponseEnum getStatus() {
       return status;

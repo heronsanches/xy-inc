@@ -13,7 +13,11 @@ public class PoiJB {
 
    private ResponseEnum status;
    private List<PoiAuxJB> pois;
+
    
+   public PoiJB() {
+   }
+ 
    
    public PoiJB(ResponseEnum status, List<Poi> pois){
       
@@ -26,6 +30,14 @@ public class PoiJB {
    }
 
    
+   public void setStatus(ResponseEnum status) {
+      this.status = status;
+   }
+
+   public void setPois(List<PoiAuxJB> pois) {
+      this.pois = pois;
+   }
+
    public ResponseEnum getStatus() {
       return status;
    }
