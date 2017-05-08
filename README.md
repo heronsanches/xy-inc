@@ -8,6 +8,9 @@
 * Fedora 25
 * Postgresql 9.5.6
 * wildfly 10.1.0
+### Test Tools
+* Arquillian
+* Junit
 ### Project Specifications
 * [EJB project pom.xml here](https://github.com/heronsanches/xy-inc/blob/master/xy-inc-zup/pom.xml)
 * [JAX-RS project pom.xml here](https://github.com/heronsanches/xy-inc/blob/master/xy-inc-zup-rest/pom.xml)
