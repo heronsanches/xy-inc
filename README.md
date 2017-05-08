@@ -81,7 +81,7 @@ exit
 ```javascript
 {"status":"OK","pois":[{"x":43,"y":5,"name":"Empresa de Tecnologia"}]}
 ```
-1. http://localhost:8080/ws.api/poi/all/by-distance-range?x=20&y=10&distance=10   (GET)
+3. http://localhost:8080/ws.api/poi/all/by-distance-range?x=20&y=10&distance=10   (GET)
   * Get POIs into a specified distance
   * Output: JSON
   * Output example:
