@@ -10,6 +10,11 @@
 * wildfly 10.1.0
 ### Test Tools
 * Arquillian
+ * Please put your wildfly path [here - arquillian.xml](https://github.com/heronsanches/xy-inc/blob/master/xy-inc-zup-rest/src/test/resources/arquillian.xml) and [here - arquillian.xml](https://github.com/heronsanches/xy-inc/blob/master/xy-inc-zup/src/test/resources/arquillian.xml)
+```xml
+  <property name="jbossHome">/home/heron/programs-libraries/wildfly-test/wildfly-10.1.0.Final</property>
+ ```
+ 
 * Junit
 ### Project Specifications
 * [EJB project pom.xml here](https://github.com/heronsanches/xy-inc/blob/master/xy-inc-zup/pom.xml)
