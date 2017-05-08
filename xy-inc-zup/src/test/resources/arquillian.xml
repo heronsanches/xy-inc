@@ -7,8 +7,8 @@
    <container qualifier="jboss-managed" default="true"> 
       <configuration>
          <property name="jbossHome">/home/heron/programs-libraries/wildfly-test/wildfly-10.1.0.Final</property>
-         <property name="serverConfig">standalone-full.xml</property>
-         <property name="managementPort">9985</property>-->
+         <property name="serverConfig">standalone.xml</property>
+         <property name="managementPort">9985</property>
       </configuration>
    </container> 
    
